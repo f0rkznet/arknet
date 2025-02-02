@@ -94,3 +94,37 @@ And in the .env file:
 ```
 allowThirdPersonPlayer=1
 ```
+
+# Build your environment
+
+Now you're ready to build the containers:
+
+```
+# Inside the arknet project folder...
+docker compose build
+```
+
+Once you are done building, launch it!
+
+```
+docker compose up -d
+```
+
+Check the server logs:
+
+```
+docker compose logs -f
+```
+
+You can safely hit control+c from this dialoug.
+
+Congradulations! You have made an ark server.
+
+# Networking
+
+You need to forward ports:
+ - 7777/udp
+ - 7778/udp
+ - 27015/udp
+
+The rcon port should not be forwarded to the internet unless you intend to remotely configure your server.
