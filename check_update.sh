@@ -33,7 +33,7 @@ while [[ "$SHUTDOWN" == false ]]; do
         echo "$(date +"%Y-%m-%d %H:%M:%S,%3N") Error: Unable to read installed build ID from $APP_MANIFEST."
     elif [[ "$CURRENT_BUILD_ID" != "$INSTALLED_BUILD_ID" ]]; then
         echo "$(date +"%Y-%m-%d %H:%M:%S,%3N") New version detected! Installed: $INSTALLED_BUILD_ID, Available: $CURRENT_BUILD_ID"
-        docker restart $(docker ps | grep -v update-check | grep -v CONTAINER\ ID | awk {'print $1'})
+        docker restart -t 200 $(docker ps | grep -v update-check | grep -v CONTAINER\ ID | awk {'print $1'})
     else
         echo "No changes detected. Installed version: $INSTALLED_BUILD_ID"
     fi

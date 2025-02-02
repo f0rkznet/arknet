@@ -56,7 +56,6 @@ services:
       - 0.0.0.0:27015:27015/udp
     volumes:
       - ./data:/data
-      - ./compatdata:/compatdata
     privileged: true
   coolerserver:
     image: arknet
@@ -79,7 +78,6 @@ services:
       - 0.0.0.0:27016:27016/udp
     volumes:
       - ./data:/data
-      - ./compatdata:/compatdata
     privileged: true
 ```
 
@@ -127,6 +125,16 @@ docker compose logs -f
 You can safely hit control+c from this dialoug.
 
 Congratulations! You have made an ark server.
+
+# Shutting down the server
+
+There is a delay to shut down the container to give a warning to your players (IE: They're in the sky). This will do its best to try and warn your players and wait an ample amount of time.
+
+Docker compose should be given a longer timeout to accomidate this:
+
+```
+docker compose stop --timeout=300
+```
 
 # Ark Updates
 

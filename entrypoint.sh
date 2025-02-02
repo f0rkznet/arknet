@@ -26,6 +26,8 @@ timestamp () {
 
 shutdown () {
     echo "$(timestamp) INFO: Recieved SIGTERM, shutting down gracefully"
+    echo "$(timestamp) INFO: Saving world..."
+    rcon -a 127.0.0.1:${RCONPort} -p "${ServerAdminPassword}" Saveworld
     # Not clear if DoExit saves first so explicitly save then exit
     rcon -a 127.0.0.1:${RCONPort} -p "${ServerAdminPassword}" Broadcast Server Going down in 180 seconds
     echo "$(timestamp) INFO: Waiting 180 seconds before shutting down"

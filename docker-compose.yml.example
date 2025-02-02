@@ -30,5 +30,4 @@ services:
       - 0.0.0.0:27015:27015/udp
     volumes:
       - ./data:/data
-      - ./compatdata:/compatdata
     privileged: true
