@@ -17,7 +17,13 @@ cp docker-compose.yml.example docker-compose.yml
 cp .env.example .env
 ```
 
-Customize your server:
+# Docker Compose
+
+Customize your server.
+
+Edit the docker-compose.yml file to your specifications.
+
+An example of a multi server cluster is below:
 
 ```yaml
 services:
@@ -76,6 +82,8 @@ services:
       - ./compatdata:/compatdata
     privileged: true
 ```
+
+# Configure
 
 Customize your environment:
 
