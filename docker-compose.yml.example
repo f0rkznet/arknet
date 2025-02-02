@@ -1,0 +1,32 @@
+services:
+  check_updates:
+    image: arknet-update-check
+    build:
+      context: .
+      dockerfile: Dockerfile.update-check
+    volumes:
+      - ./data:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+  island:
+    image: arknet
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file: .env
+    environment:
+      - clusterid=my-cluster-name
+      - AltSaveDirectoryName=island
+      - SERVER_MAP=TheIsland_WP
+      - SessionName="Arknet The Island"
+      - QueryPort=27015
+      - Port=7777
+      - RCONPort=27020
+    ports:
+      - 0.0.0.0:7777:7777/udp
+      - 0.0.0.0:7778:7778/udp
+      - 0.0.0.0:27020:27020/tcp
+      - 0.0.0.0:27015:27015/udp
+    volumes:
+      - ./data:/data
+      - ./compatdata:/compatdata
+    privileged: true

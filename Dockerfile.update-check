@@ -1,0 +1,12 @@
+FROM debian:12-slim
+
+RUN sed -i 's#^Components: .*#Components: main non-free contrib#g' /etc/apt/sources.list.d/debian.sources && \
+    apt update -yq && \
+    apt install -y --no-install-recommends \
+        ca-certificates \ 
+        curl \
+        jq \
+        docker.io
+COPY check_update.sh /check_update.sh
+RUN chmod +x /check_update.sh
+ENTRYPOINT [ "/check_update.sh" ]
