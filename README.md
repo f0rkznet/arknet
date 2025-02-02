@@ -126,7 +126,7 @@ docker compose logs -f
 
 You can safely hit control+c from this dialoug.
 
-Congradulations! You have made an ark server.
+Congratulations! You have made an ark server.
 
 # Networking
 
