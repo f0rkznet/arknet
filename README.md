@@ -128,6 +128,12 @@ You can safely hit control+c from this dialoug.
 
 Congratulations! You have made an ark server.
 
+# Ark Updates
+
+An update daemon has been included to watch for changes. It will restart the server cluster when it detects version changes. If you do not wish to have this feature, simply remove it from the docker-compose.yml file.
+
+Note, this does a very sweeping docker restart command. Use with caution on shared systems! A dedicated ark VM is important when using this script.
+
 # Networking
 
 You need to forward ports:

@@ -1,6 +1,7 @@
 services:
   check_updates:
     image: arknet-update-check
+    restart: unless-stopped
     build:
       context: .
       dockerfile: Dockerfile.update-check
@@ -9,6 +10,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
   island:
     image: arknet
+    restart: unless-stopped
     build:
       context: .
       dockerfile: Dockerfile
